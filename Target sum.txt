@@ -1,0 +1,16 @@
+class Solution {
+public:
+
+    int totalways(vector<int>&arr , int i , int s , int target){
+        if(s==target && i == arr.size()){
+            return 1;
+        }
+        if(i>=arr.size()){
+            return 0;
+        }
+        return totalways(arr , i+1 , s + arr[i] , target) + totalways(arr , i+1 , s-arr[i] , target);
+        }
+    int findTargetSumWays(vector<int>& nums, int target) {
+       return totalways(nums, 0 , 0 , target ); 
+    }
+};
